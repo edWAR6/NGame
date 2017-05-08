@@ -1,0 +1,10 @@
+/Users/eduardo/Work/GnA/temp/NGame/src/NGame/bin/Debug/netcoreapp1.0/NGame.dll
+/Users/eduardo/Work/GnA/temp/NGame/src/NGame/bin/Debug/netcoreapp1.0/NGame.pdb
+/Users/eduardo/Work/GnA/temp/NGame/src/NGame/obj/Debug/netcoreapp1.0/NGame.AssemblyInfo.cs
+/Users/eduardo/Work/GnA/temp/NGame/src/NGame/obj/Debug/netcoreapp1.0/NGame.dll
+/Users/eduardo/Work/GnA/temp/NGame/src/NGame/obj/Debug/netcoreapp1.0/NGame.pdb
+/Users/eduardo/Work/GnA/NGame/bin/Debug/netcoreapp1.0/NGame.dll
+/Users/eduardo/Work/GnA/NGame/bin/Debug/netcoreapp1.0/NGame.pdb
+/Users/eduardo/Work/GnA/NGame/obj/Debug/netcoreapp1.0/NGame.AssemblyInfo.cs
+/Users/eduardo/Work/GnA/NGame/obj/Debug/netcoreapp1.0/NGame.dll
+/Users/eduardo/Work/GnA/NGame/obj/Debug/netcoreapp1.0/NGame.pdb

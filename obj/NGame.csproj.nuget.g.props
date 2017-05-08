@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+    <RestoreSuccess Condition=" '$(RestoreSuccess)' == '' ">True</RestoreSuccess>
+    <RestoreTool Condition=" '$(RestoreTool)' == '' ">NuGet</RestoreTool>
+    <ProjectAssetsFile Condition=" '$(ProjectAssetsFile)' == '' ">/Users/eduardo/Work/GnA/temp/NGame/src/NGame/obj/project.assets.json</ProjectAssetsFile>
+    <NuGetPackageRoot Condition=" '$(NuGetPackageRoot)' == '' ">/Users/eduardo/.nuget/packages/</NuGetPackageRoot>
+    <NuGetPackageFolders Condition=" '$(NuGetPackageFolders)' == '' ">/Users/eduardo/.nuget/packages/</NuGetPackageFolders>
+    <NuGetProjectStyle Condition=" '$(NuGetProjectStyle)' == '' ">PackageReference</NuGetProjectStyle>
+    <NuGetToolVersion Condition=" '$(NuGetToolVersion)' == '' ">4.0.0</NuGetToolVersion>
+  </PropertyGroup>
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+  </PropertyGroup>
+  <ImportGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+    <Import Project="$(NuGetPackageRoot)microsoft.net.sdk/1.0.0-alpha-20161104-2/build/Microsoft.NET.Sdk.props" Condition="Exists('$(NuGetPackageRoot)microsoft.net.sdk/1.0.0-alpha-20161104-2/build/Microsoft.NET.Sdk.props')" />
+    <Import Project="$(NuGetPackageRoot)microsoft.net.sdk.web.projectsystem/1.0.0-alpha-20161104-2-112/build/netstandard1.0/Microsoft.NET.Sdk.Web.ProjectSystem.props" Condition="Exists('$(NuGetPackageRoot)microsoft.net.sdk.web.projectsystem/1.0.0-alpha-20161104-2-112/build/netstandard1.0/Microsoft.NET.Sdk.Web.ProjectSystem.props')" />
+  </ImportGroup>
+</Project>

@@ -1,0 +1,8 @@
+/Users/eduardo/Work/GnA/NGame/Middleware/NGame.Middleware/bin/Debug/netcoreapp1.1/NGame.Middleware.deps.json
+/Users/eduardo/Work/GnA/NGame/Middleware/NGame.Middleware/bin/Debug/netcoreapp1.1/NGame.Middleware.runtimeconfig.json
+/Users/eduardo/Work/GnA/NGame/Middleware/NGame.Middleware/bin/Debug/netcoreapp1.1/NGame.Middleware.runtimeconfig.dev.json
+/Users/eduardo/Work/GnA/NGame/Middleware/NGame.Middleware/bin/Debug/netcoreapp1.1/NGame.Middleware.dll
+/Users/eduardo/Work/GnA/NGame/Middleware/NGame.Middleware/bin/Debug/netcoreapp1.1/NGame.Middleware.pdb
+/Users/eduardo/Work/GnA/NGame/Middleware/NGame.Middleware/obj/Debug/netcoreapp1.1/NGame.Middleware.AssemblyInfo.cs
+/Users/eduardo/Work/GnA/NGame/Middleware/NGame.Middleware/obj/Debug/netcoreapp1.1/NGame.Middleware.dll
+/Users/eduardo/Work/GnA/NGame/Middleware/NGame.Middleware/obj/Debug/netcoreapp1.1/NGame.Middleware.pdb

@@ -120,13 +120,16 @@ namespace NGame.Middleware.Controllers
           {
             new Claim(ClaimTypes.Role, "Clerk")
           }));
-      }    
+      }
 
-      if (user.UserName == "other" &&
+      if (user.UserName == "administrator" &&
           user.Password == "helloworld")
       {
         return Task.FromResult(new ClaimsIdentity(new GenericIdentity(user.UserName, "Token"),
-          new Claim[] { }));
+          new[]
+          {
+            new Claim(ClaimTypes.Role, "Administrator")
+          }));
       }
 
       // Credentials are invalid, or account doesn't exist

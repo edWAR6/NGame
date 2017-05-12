@@ -18,7 +18,8 @@ namespace NGame.Middleware.Controllers
     }
 
     [HttpGet]
-    [Authorize(Policy = "DisneyUser")]
+    // [Authorize(Policy = "DisneyUser")]
+    [Authorize(Policy = "AgentRole")]
     public IActionResult Get()
     {
       var response = new

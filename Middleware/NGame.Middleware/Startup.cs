@@ -46,7 +46,8 @@ namespace NGame.Middleware
 
             // Use policy auth.
             services.AddAuthorization(options => {
-                options.AddPolicy("DisneyUser", policy => policy.RequireClaim("DisneyCharacter", "IAmMickey"));
+                options.AddPolicy("AgentRole", policy => policy.RequireRole("Administrator", "Agent"));
+                options.AddPolicy("ClerkRole", policy => policy.RequireRole("Administrator", "Clerk"));
             });            
 
             // Get options from app settings

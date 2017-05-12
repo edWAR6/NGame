@@ -34,7 +34,7 @@ namespace NGame.Middleware.Controllers
 
     [HttpPost]
     [AllowAnonymous]
-    public async Task<IActionResult> Get([FromForm] ApplicationUser applicationUser)
+    public async Task<IActionResult> Post([FromForm] ApplicationUser applicationUser)
     {
       var identity = await GetClaimsIdentity(applicationUser);
       if (identity == null)
@@ -48,7 +48,7 @@ namespace NGame.Middleware.Controllers
         new Claim(JwtRegisteredClaimNames.Sub, applicationUser.UserName),
         new Claim(JwtRegisteredClaimNames.Jti, await _jwtOptions.JtiGenerator()),
         new Claim(JwtRegisteredClaimNames.Iat, ToUnixEpochDate(_jwtOptions.IssuedAt).ToString(), ClaimValueTypes.Integer64),
-        identity.FindFirst("DisneyCharacter")
+        identity.FindFirst(ClaimTypes.Role)
       };
 
       // Create the JWT security token and encode it.
@@ -98,24 +98,32 @@ namespace NGame.Middleware.Controllers
       => (long)Math.Round((date.ToUniversalTime() - new DateTimeOffset(1970, 1, 1, 0, 0, 0, TimeSpan.Zero)).TotalSeconds);
 
     /// <summary>
-    /// IMAGINE BIG RED WARNING SIGNS HERE!
-    /// You'd want to retrieve claims through your claims provider
-    /// in whatever way suits you, the below is purely for demo purposes!
+    /// Logs in the user with the corresponding authentication service
     /// </summary>
     private static Task<ClaimsIdentity> GetClaimsIdentity(ApplicationUser user)
-    {
-      if (user.UserName == "MickeyMouse" &&
-          user.Password == "MickeyMouseIsBoss123")
+    {      
+      if (user.UserName == "eduardo" &&
+          user.Password == "helloworld")
       {
         return Task.FromResult(new ClaimsIdentity(new GenericIdentity(user.UserName, "Token"),
           new[]
           {
-            new Claim("DisneyCharacter", "IAmMickey")
+            new Claim(ClaimTypes.Role, "Agent")
           }));
       }
 
-      if (user.UserName == "NotMickeyMouse" &&
-          user.Password == "NotMickeyMouseIsBoss123")
+      if (user.UserName == "ricardo" &&
+          user.Password == "helloworld")
+      {
+        return Task.FromResult(new ClaimsIdentity(new GenericIdentity(user.UserName, "Token"),
+          new[]
+          {
+            new Claim(ClaimTypes.Role, "Clerk")
+          }));
+      }    
+
+      if (user.UserName == "other" &&
+          user.Password == "helloworld")
       {
         return Task.FromResult(new ClaimsIdentity(new GenericIdentity(user.UserName, "Token"),
           new Claim[] { }));

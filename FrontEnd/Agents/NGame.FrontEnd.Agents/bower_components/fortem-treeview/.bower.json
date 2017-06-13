@@ -1,0 +1,32 @@
+{
+  "name": "fortem-treeview",
+  "description": "Custom Treeview for the Fortem company",
+  "main": "fortem-treeview.html",
+  "authors": [
+    "Eduardo Oviedo"
+  ],
+  "license": "Apache-2.0",
+  "dependencies": {
+    "polymer": "Polymer/polymer#^2.0.0"
+  },
+  "devDependencies": {
+    "iron-demo-helpers": "PolymerElements/iron-demo-helpers#^2.0.0",
+    "web-component-tester": "Polymer/web-component-tester#^6.0.0",
+    "webcomponentsjs": "webcomponents/webcomponentsjs#^1.0.0"
+  },
+  "resolutions": {
+    "polymer": "^2.0.0"
+  },
+  "homepage": "https://github.com/edWAR6/fortem-treeview",
+  "version": "1.0.0",
+  "_release": "1.0.0",
+  "_resolution": {
+    "type": "version",
+    "tag": "1.0.0",
+    "commit": "73bcbb765641042f07fcd7e898d46f9fb6a600b4"
+  },
+  "_source": "https://github.com/edWAR6/fortem-treeview.git",
+  "_target": "^1.0.0",
+  "_originalSource": "edWAR6/fortem-treeview",
+  "_direct": true
+}

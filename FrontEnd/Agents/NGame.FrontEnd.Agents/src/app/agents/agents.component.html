@@ -1,0 +1,120 @@
+<h2>Find an agent</h2>
+<div fxLayoutWrap fxLayoutAlign="start center" fxLayoutGap="20px">
+  <div class="">
+    <md-input-container>
+      <input mdInput placeholder="Agent ID:">
+    </md-input-container>
+    <button md-raised-button>Find</button>
+  </div>
+  <md-select placeholder="List of Master Agents">
+    <md-option *ngFor="let food of foods" [value]="food.value">
+      {{ food.viewValue }}
+    </md-option>
+  </md-select>
+  <md-select placeholder="List of Sub Agents">
+    <md-option *ngFor="let food of foods" [value]="food.value">
+      {{ food.viewValue }}
+    </md-option>
+  </md-select>
+  <button md-raised-button>Load</button>
+</div>
+
+<hr>
+
+<div fxLayoutWrap fxLayoutAlign="start start" fxLayoutGap="20px">
+  <div class="" fxFlex="0 0 auto">
+    <md-card>
+      <md-card-header>
+        <md-card-title>Agent Information</md-card-title>
+      </md-card-header>
+      <md-card-content fxLayout="column" fxLayoutGap="20px">
+        <md-input-container>
+          <input mdInput placeholder="Agent ID:" disabled value="PPHMA">
+        </md-input-container>
+        <md-checkbox>Enable Live Betting for Players</md-checkbox>
+        <md-select placeholder="List of Master Agents">
+          <md-option *ngFor="let food of foods" [value]="food.value">
+            {{ food.viewValue }}
+          </md-option>
+        </md-select>
+        <md-select placeholder="List of Sub Agents">
+          <md-option *ngFor="let food of foods" [value]="food.value">
+            {{ food.viewValue }}
+          </md-option>
+        </md-select>
+        <md-select placeholder="List of Players">
+          <md-option *ngFor="let food of foods" [value]="food.value">
+            {{ food.viewValue }}
+          </md-option>
+        </md-select>
+        <md-checkbox>Enable Live Betting Admin</md-checkbox>
+        <md-select placeholder="List of Master Agents">
+          <md-option *ngFor="let food of foods" [value]="food.value">
+            {{ food.viewValue }}
+          </md-option>
+        </md-select>
+        <md-select placeholder="List of Sub Agents">
+          <md-option *ngFor="let food of foods" [value]="food.value">
+            {{ food.viewValue }}
+          </md-option>
+        </md-select>
+      </md-card-content>
+    </md-card>
+    <md-card>
+      <md-card-header>
+        <md-card-title>Settings</md-card-title>
+      </md-card-header>
+      <md-card-content fxLayout="column" fxLayoutGap="20px">
+        <md-checkbox>No Re-Bet</md-checkbox>
+        <md-input-container>
+          <input mdInput placeholder="Limit for all Sports and Leagues:">
+        </md-input-container>
+      </md-card-content>
+    </md-card>
+  </div>
+  <div class="" style="background-color:green" fxFlex="0 0 auto">
+    <md-card>
+      <md-card-header>
+        <md-card-title>Groupings</md-card-title>
+      </md-card-header>
+      <md-card-content fxLayout="column" fxLayoutGap="20px">
+        <md-input-container>
+          <input mdInput placeholder="Agent ID:" disabled value="PPHMA">
+        </md-input-container>
+        <md-checkbox>Enable Live Betting for Players</md-checkbox>
+        <md-select placeholder="List of Master Agents">
+          <md-option *ngFor="let food of foods" [value]="food.value">
+            {{ food.viewValue }}
+          </md-option>
+        </md-select>
+        <md-select placeholder="List of Sub Agents">
+          <md-option *ngFor="let food of foods" [value]="food.value">
+            {{ food.viewValue }}
+          </md-option>
+        </md-select>
+        <md-select placeholder="List of Players">
+          <md-option *ngFor="let food of foods" [value]="food.value">
+            {{ food.viewValue }}
+          </md-option>
+        </md-select>
+        <md-checkbox>Enable Live Betting Admin</md-checkbox>
+        <md-select placeholder="List of Master Agents">
+          <md-option *ngFor="let food of foods" [value]="food.value">
+            {{ food.viewValue }}
+          </md-option>
+        </md-select>
+        <md-select placeholder="List of Sub Agents">
+          <md-option *ngFor="let food of foods" [value]="food.value">
+            {{ food.viewValue }}
+          </md-option>
+        </md-select>
+      </md-card-content>
+    </md-card>
+  </div>
+  <div class="" style="background-color:pink" fxFlex="0 0 auto">
+    tres tres tres tres tres
+  </div>
+  <div class="" style="background-color:red" fxFlex="0 0 auto">
+    cuatro cuatro cuatro cuatro cuatro c
+  </div>
+</div>

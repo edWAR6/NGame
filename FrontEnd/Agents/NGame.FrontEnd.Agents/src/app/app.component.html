@@ -1,3 +1,15 @@
-<h1>
-  {{title}}
-</h1>
+<md-toolbar color="primary">
+  <span>N-Game Admin</span>
+  <md-toolbar-row>
+    <button md-button>Agents Management</button>
+    <button md-button>Players Management</button>
+    <button md-button>Markets Management</button>
+    <button md-button>Reports</button>
+    <button md-button>Rules</button>
+    <span class="spacer"></span>
+    <button md-button>Logout</button>
+  </md-toolbar-row>
+</md-toolbar>
+<div class="app-content">
+  <router-outlet></router-outlet>
+</div>

@@ -1,11 +1,12 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { MdToolbarModule, MdButtonModule, MdInputModule, MdSelectModule, MdCardModule, MdCheckboxModule } from '@angular/material';
+import { IronElementsModule, PaperElementsModule } from '@codebakery/origami/lib/collections';
+import { MdToolbarModule, MdButtonModule, MdInputModule, MdSelectModule, MdCardModule, MdCheckboxModule, MdIconModule } from '@angular/material';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -43,14 +44,18 @@ const appRoutes: Routes = [
     HttpModule,
     RouterModule.forRoot(appRoutes),
     FlexLayoutModule,
+    IronElementsModule,
+    PaperElementsModule,
     MdToolbarModule,
     MdButtonModule,
     MdInputModule,
     MdSelectModule,
     MdCardModule,
-    MdCheckboxModule
+    MdCheckboxModule,
+    MdIconModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule { }

@@ -8,8 +8,18 @@ body{
   margin: 0;
   padding: 0;
   font-family: 'Roboto Mono', monospace !important;
+  background-color: #eee;
+}
+
+md-card.mat-card {
+    margin-bottom: 20px;
 }
 
 md-select{
   max-width: 215px;
+}
+
+.treeViewPadding{
+  padding-left: 45px;
+  padding-right: 5px;
 }

@@ -3,12 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using NakamaAgentService;
 
 namespace NGame.Middleware.Controllers
 {
     [Route("api/[controller]")]
     public class ValuesController : Controller
     {
+        private static readonly int SYSTEM_ID = 1;
+
         // GET api/values
         [HttpGet]
         public IEnumerable<string> Get()
@@ -16,12 +19,27 @@ namespace NGame.Middleware.Controllers
             return new string[] { "value1", "value2" };
         }
 
-        // GET api/values/5
+        // GET api/agents/5
         [HttpGet("{id}")]
-        public string Get(int id)
+        public AgentResponse Get(string id)
         {
-            return "value";
+            AgentWebServiceClient client = new AgentWebServiceClient();
+            AgentFilter filter = new AgentFilter();
+            filter.AgentID = id;
+            filter.AgentSystemID = SYSTEM_ID;
+
+            AgentResponse response = client.GetAgentAsync(filter).Result;
+            client.CloseAsync();
+
+            return response;
         }
+
+
+
+
+
+
+
 
         // POST api/values
         [HttpPost]

@@ -7,9 +7,9 @@
   <md-card-content fxLayoutWrap fxLayoutAlign="start center" fxLayoutGap="20px">
     <div>
       <md-input-container>
-        <input mdInput placeholder="Agent ID:">
+        <input mdInput placeholder="Agent ID:" #idInput>
       </md-input-container>
-      <button md-raised-button>Find</button>
+      <button md-raised-button (click)="GetByID(idInput.value)">Find</button>
     </div>
     <md-select placeholder="List of Master Agents">
       <md-option *ngFor="let food of foods" [value]="food.value">
@@ -33,7 +33,7 @@
       </md-card-header>
       <md-card-content fxLayout="column" fxLayoutGap="20px">
         <md-input-container>
-          <input mdInput placeholder="Agent ID:" disabled value="PPHMA">
+          <input mdInput placeholder="Agent ID:" disabled value="{{agent.agentID}}">
         </md-input-container>
         <md-checkbox>Enable Live Betting for Players</md-checkbox>
         <md-select placeholder="List of Master Agents">

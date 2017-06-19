@@ -7,9 +7,9 @@
   <md-card-content fxLayoutWrap fxLayoutAlign="start center" fxLayoutGap="20px">
     <div>
       <md-input-container>
-        <input mdInput placeholder="Player ID:">
+        <input mdInput placeholder="Player ID:" #idInput>
       </md-input-container>
-      <button md-raised-button>Find</button>
+      <button md-raised-button (click)="GetByID(idInput.value)">Find</button>
     </div>
     <md-select placeholder="List of Master Agents">
       <md-option *ngFor="let food of foods" [value]="food.value">
@@ -38,7 +38,7 @@
       </md-card-header>
       <md-card-content fxLayout="column" fxLayoutGap="20px">
         <md-input-container>
-          <input mdInput placeholder="Player ID:" disabled value="PPH1">
+          <input mdInput placeholder="Player ID:" disabled value="{{player.agentID}}">
         </md-input-container>
         <md-input-container>
           <input mdInput placeholder="Agent:" disabled value="PPHSA">

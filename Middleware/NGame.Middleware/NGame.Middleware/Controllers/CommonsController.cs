@@ -3,44 +3,43 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using NakamaCommonService;
+using Microsoft.AspNetCore.Cors;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace NGame.Middleware.Controllers
 {
+    [EnableCors("SiteCorsPolicy")]
     [Route("api/[controller]")]
     public class CommonsController : Controller
     {
-        // GET: api/values
-        [HttpGet]
-        public IEnumerable<string> Get()
+        // GET: api/commons/sports
+        [HttpGet("sports")]
+        public SportListResponse GetSports()
         {
-            return new string[] { "value1", "value2" };
+            CommonWebServiceClient client = new CommonWebServiceClient();
+            SportListResponse response = client.GetSportListAsync().Result;
+
+            client.CloseAsync();
+            return response;
         }
 
-        // GET api/values/5
-        [HttpGet("{id}")]
-        public string Get(int id)
+        // POST api/commons/limits
+        [HttpPost("limits")]
+        public LimitResponse PostLimits([FromBody]float maxBet, [FromBody]float maxWin, [FromBody]AgentFilter[] agents, [FromBody]PlayerFilter[] players)
         {
-            return "value";
-        }
+            CommonWebServiceClient client = new CommonWebServiceClient();
+            LimitFilter filter = new LimitFilter();
+            filter.MaxBet = maxBet;
+            filter.MaxWin = maxWin;
+            filter.Agents = agents;
+            filter.Players = players;
 
-        // POST api/values
-        [HttpPost]
-        public void Post([FromBody]string value)
-        {
-        }
+            LimitResponse response = client.SetLimitAmountAsync(filter).Result;
+            client.CloseAsync();
 
-        // PUT api/values/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody]string value)
-        {
-        }
-
-        // DELETE api/values/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
+            return response;
         }
     }
 }

@@ -14,7 +14,7 @@ namespace NGame.Middleware.Controllers
     [Route("api/[controller]")]
     public class PlayersController : Controller
     {
-        private static readonly int SYSTEM_ID = 1;
+        private static readonly int SYSTEM_PLATFORM_ID = 1;
 
         // GET api/players/5/settings
         [HttpGet("{id}/settings")]
@@ -23,7 +23,7 @@ namespace NGame.Middleware.Controllers
             PlayerWebServiceClient client = new PlayerWebServiceClient();
             PlayerFilter filter = new PlayerFilter();
             filter.PlayerID = id;
-            filter.AgentSystemID = SYSTEM_ID;
+            filter.AgentSystemID = SYSTEM_PLATFORM_ID;
 
             PlayerResponse response = client.GetPlayerSettingByPlayerIDAsync(filter).Result;
             client.CloseAsync();
@@ -38,7 +38,7 @@ namespace NGame.Middleware.Controllers
             PlayerWebServiceClient client = new PlayerWebServiceClient();
             PlayerFilter filter = new PlayerFilter();
             filter.HostPlayerID = id;
-            filter.AgentSystemID = SYSTEM_ID;
+            filter.AgentSystemID = SYSTEM_PLATFORM_ID;
 
             PlayerResponse response = client.GetPlayerSettingByHostPlayerIDAsync(filter).Result;
             client.CloseAsync();
@@ -53,7 +53,7 @@ namespace NGame.Middleware.Controllers
             PlayerWebServiceClient client = new PlayerWebServiceClient();
             PlayerMarketSportGroupFilter filter = new PlayerMarketSportGroupFilter();
             filter.PlayerID = id;
-            filter.AgentSystemID = SYSTEM_ID;
+            filter.AgentSystemID = SYSTEM_PLATFORM_ID;
             filter.SportID = sportId;
 
             MarketResponse response = client.GetPlayerSportMarketAsync(filter).Result;
@@ -69,7 +69,7 @@ namespace NGame.Middleware.Controllers
             PlayerWebServiceClient client = new PlayerWebServiceClient();
             PlayerMarketCategoryGroupFilter filter = new PlayerMarketCategoryGroupFilter();
             filter.PlayerID = id;
-            filter.AgentSystemID = SYSTEM_ID;
+            filter.AgentSystemID = SYSTEM_PLATFORM_ID;
             filter.SportID = sportId;
             filter.CategoryID = categoryId;
 
@@ -86,7 +86,7 @@ namespace NGame.Middleware.Controllers
             PlayerWebServiceClient client = new PlayerWebServiceClient();
             PlayerMarketTournamentGroupFilter filter = new PlayerMarketTournamentGroupFilter();
             filter.PlayerID = id;
-            filter.AgentSystemID = SYSTEM_ID;
+            filter.AgentSystemID = SYSTEM_PLATFORM_ID;
             filter.SportID = sportId;
             filter.CategoryID = categoryId;
             filter.TournamentID = tournamentId;
@@ -104,7 +104,7 @@ namespace NGame.Middleware.Controllers
             PlayerWebServiceClient client = new PlayerWebServiceClient();
             PlayerFilter filter = new PlayerFilter();
             filter.PlayerID = id;
-            filter.AgentSystemID = SYSTEM_ID;
+            filter.AgentSystemID = SYSTEM_PLATFORM_ID;
             filter.PlayerSettings = settings;
 
             PlayerResponse response = client.SetPlayerSettingAsync(filter).Result;
@@ -120,7 +120,7 @@ namespace NGame.Middleware.Controllers
             PlayerWebServiceClient client = new PlayerWebServiceClient();
             PlayerMarketSportGroupFilter filter = new PlayerMarketSportGroupFilter();
             filter.PlayerID = id;
-            filter.AgentSystemID = SYSTEM_ID;
+            filter.AgentSystemID = SYSTEM_PLATFORM_ID;
             filter.SportID = sportId;
             filter.Limits = limits;
 
@@ -137,7 +137,7 @@ namespace NGame.Middleware.Controllers
             PlayerWebServiceClient client = new PlayerWebServiceClient();
             PlayerMarketCategoryGroupFilter filter = new PlayerMarketCategoryGroupFilter();
             filter.PlayerID = id;
-            filter.AgentSystemID = SYSTEM_ID;
+            filter.AgentSystemID = SYSTEM_PLATFORM_ID;
             filter.SportID = sportId;
             filter.CategoryID = categoryId;
             filter.Limits = limits;
@@ -155,7 +155,7 @@ namespace NGame.Middleware.Controllers
             PlayerWebServiceClient client = new PlayerWebServiceClient();
             PlayerMarketTournamentGroupFilter filter = new PlayerMarketTournamentGroupFilter();
             filter.PlayerID = id;
-            filter.AgentSystemID = SYSTEM_ID;
+            filter.AgentSystemID = SYSTEM_PLATFORM_ID;
             filter.SportID = sportId;
             filter.CategoryID = categoryId;
             filter.TournamentID = tournamentId;

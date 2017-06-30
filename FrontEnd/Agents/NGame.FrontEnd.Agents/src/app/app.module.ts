@@ -6,7 +6,7 @@ import { HttpModule } from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { IronElementsModule, PaperElementsModule } from '@codebakery/origami/lib/collections';
-import { MdToolbarModule, MdButtonModule, MdInputModule, MdSelectModule, MdCardModule, MdCheckboxModule, MdIconModule, MdSnackBarModule } from '@angular/material';
+import { MdToolbarModule, MdTabsModule, MdButtonModule, MdInputModule, MdSelectModule, MdCardModule, MdCheckboxModule, MdIconModule, MdSnackBarModule } from '@angular/material';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -47,6 +47,7 @@ const appRoutes: Routes = [
     IronElementsModule,
     PaperElementsModule,
     MdToolbarModule,
+    MdTabsModule,
     MdButtonModule,
     MdInputModule,
     MdSelectModule,

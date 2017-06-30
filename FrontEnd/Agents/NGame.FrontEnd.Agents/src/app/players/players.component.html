@@ -67,6 +67,31 @@
       </md-card-header>
       <md-card-content fxLayout="column" fxLayoutGap="20px">
         <fortem-treeview item-color="#eee" child-item-color="white" children-collapsed>
+          <fortem-treeview-item *ngFor="let sport of sports" trigger="sportbutton{{sport.sportID}}" container="sportcontainer{{sport.sportID}}">
+            <button md-icon-button id="sportbutton{{sport.sportID}}">
+              <md-icon>add</md-icon>
+            </button>
+            <span>{{sport.sportsName}}</span>
+            <div id="sportcontainer{{sport.sportID}}">
+              <!-- <fortem-treeview-item trigger="albaniabutton" container="albaniacontainer">
+                <button md-icon-button id="albaniabutton">
+                  <md-icon>add</md-icon>
+                </button>
+                <span>Albania</span>
+                <div id="albaniacontainer">
+                  <fortem-treeview-item>
+                    Kategoria e Pare
+                  </fortem-treeview-item>
+                  <fortem-treeview-item>
+                    Kategoria e Pare, Group A
+                  </fortem-treeview-item>
+                </div>
+              </fortem-treeview-item> -->
+            </div>
+          </fortem-treeview-item>
+
+
+
           <fortem-treeview-item trigger="soccerbutton" container="soccercontainer">
             <button md-icon-button id="soccerbutton">
               <md-icon>add</md-icon>

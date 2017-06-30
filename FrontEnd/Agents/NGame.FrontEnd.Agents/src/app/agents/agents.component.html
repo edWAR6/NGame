@@ -35,7 +35,7 @@
         <md-input-container>
           <input mdInput placeholder="Agent ID:" disabled value="{{agent.agentID}}">
         </md-input-container>
-        <md-checkbox>Enable Live Betting for Players</md-checkbox>
+        <md-checkbox [(ngModel)]="settings.LiveBettingForPlayerAccess">Enable Live Betting for Players</md-checkbox>
         <md-select placeholder="List of Master Agents">
           <md-option *ngFor="let food of foods" [value]="food.value">
             {{ food.viewValue }}
@@ -51,7 +51,7 @@
             {{ food.viewValue }}
           </md-option>
         </md-select>
-        <md-checkbox>Enable Live Betting Admin</md-checkbox>
+        <md-checkbox [(ngModel)]="settings.LiveBettingAdminAccess">Enable Live Betting Admin</md-checkbox>
         <md-select placeholder="List of Master Agents">
           <md-option *ngFor="let food of foods" [value]="food.value">
             {{ food.viewValue }}
@@ -69,7 +69,7 @@
         <md-card-title>Settings</md-card-title>
       </md-card-header>
       <md-card-content fxLayout="column" fxLayoutGap="20px">
-        <md-checkbox>No Re-Bet</md-checkbox>
+        <md-checkbox [(ngModel)]="settings.Rebet">No Re-Bet</md-checkbox>
         <md-input-container>
           <input mdInput placeholder="Limit for all Sports and Leagues:">
         </md-input-container>
@@ -83,13 +83,13 @@
       </md-card-header>
       <md-card-content fxLayout="column" fxLayoutGap="20px">
         <fortem-treeview item-color="#eee" child-item-color="white" children-collapsed>
-          <fortem-treeview-item trigger="soccerbutton" container="soccercontainer">
-            <button md-icon-button id="soccerbutton">
+          <fortem-treeview-item *ngFor="let sport of sports" trigger="sportbutton{{sport.sportID}}" container="sportcontainer{{sport.sportID}}">
+            <button md-icon-button id="sportbutton{{sport.sportID}}">
               <md-icon>add</md-icon>
             </button>
-            <span>Soccer</span>
-            <div id="soccercontainer">
-              <fortem-treeview-item trigger="albaniabutton" container="albaniacontainer">
+            <span>{{sport.sportsName}}</span>
+            <div id="sportcontainer{{sport.sportID}}">
+              <!-- <fortem-treeview-item trigger="albaniabutton" container="albaniacontainer">
                 <button md-icon-button id="albaniabutton">
                   <md-icon>add</md-icon>
                 </button>
@@ -102,9 +102,15 @@
                     Kategoria e Pare, Group A
                   </fortem-treeview-item>
                 </div>
-              </fortem-treeview-item>
+              </fortem-treeview-item> -->
             </div>
           </fortem-treeview-item>
+
+
+
+
+
+
           <fortem-treeview-item trigger="soccerbutton" container="soccercontainer">
             <button md-icon-button id="soccerbutton">
               <md-icon>add</md-icon>

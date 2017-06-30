@@ -7,7 +7,8 @@ import { Observable } from 'rxjs/Observable';
 export class PlayersService {
   private actionUrl: string;
   constructor(private http: Http) {
-    this.actionUrl = 'http://localhost:50378/api/players/';
+    // this.actionUrl = 'http://vweb01-dev:5591/NGameNAKAMA/api/players/';
+    this.actionUrl = 'http://ngamemiddleware.azurewebsites.net/api/players/';
   }
 
   // public GetByID = (id: string): Observable<any> => {

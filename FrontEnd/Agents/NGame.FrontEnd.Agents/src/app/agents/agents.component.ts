@@ -2,22 +2,24 @@ import { Component, OnInit } from '@angular/core';
 import { MdSnackBar } from '@angular/material';
 import { Agent } from './agent.model'
 import { AgentsService } from './agents.service';
+import { CommonsService } from './../commons/commons.service';
 
 @Component({
   selector: 'app-agents',
   templateUrl: './agents.component.html',
   styleUrls: ['./agents.component.css'],
-  providers: [AgentsService]
+  providers: [AgentsService, CommonsService]
 })
 export class AgentsComponent implements OnInit {
-  foods = [];
   agent: Agent = new Agent;
   masterAgents: Array<Agent> = [];
+  settings: any = {};
+  sports: Array<any> = [];
 
-  constructor(private snackBar: MdSnackBar, private $agents: AgentsService) { }
+  constructor(private snackBar: MdSnackBar, private $agents: AgentsService, private $commons: CommonsService) { }
 
   ngOnInit(){
-
+    this.GetSports();
   }
 
   GetByID(id: string){
@@ -33,12 +35,33 @@ export class AgentsComponent implements OnInit {
       console.error(error);
     }, () => {
       this.GetMasterAgents();
+      this.GetSettings();
     });
   }
 
   GetMasterAgents(){
     this.$agents.GetMasterAgents(this.agent.agentID, this.agent.agentType).subscribe(data => {
       this.masterAgents = data.result;
+    }, error => {
+      console.error(error);
+    });
+  }
+
+  GetSettings(){
+    this.$agents.GetSettings(this.agent.agentID, this.agent.agentType).subscribe(data => {
+      for(let setting of data.result.agentSettings){
+        this.settings[setting.propertyName] = setting.agentSettingValue == 2? true : false;
+      }
+      console.log(this.settings);
+    }, error => {
+      console.error(error);
+    });
+  }
+
+  GetSports(){
+    this.$commons.GetSports().subscribe(data => {
+      this.sports = data.result.sports;
+      console.log(data.result.sports);
     }, error => {
       console.error(error);
     });

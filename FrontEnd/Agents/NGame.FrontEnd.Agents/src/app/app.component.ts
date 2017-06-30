@@ -6,5 +6,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app works!';
+  menu = [
+    {url: '/agents', content: 'Agents Management'},
+    {url: '/players', content: 'Players Management'},
+    {url: '/markets', content: 'Markets Management'},
+    {url: '/reports', content: 'Reports'},
+    {url: '/rules', content: 'Rules'}
+  ];
 }

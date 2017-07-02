@@ -14,6 +14,65 @@ namespace NakamaAgentService
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("dotnet-svcutil", "0.5.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="SystemPlataform", Namespace="http://schemas.datacontract.org/2004/07/Nakama.Core.Model.Common")]
+    public partial class SystemPlataform : object
+    {
+        
+        private int SystemPlataformIDField;
+        
+        private string SystemPlataformNameField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int SystemPlataformID
+        {
+            get
+            {
+                return this.SystemPlataformIDField;
+            }
+            set
+            {
+                this.SystemPlataformIDField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string SystemPlataformName
+        {
+            get
+            {
+                return this.SystemPlataformNameField;
+            }
+            set
+            {
+                this.SystemPlataformNameField = value;
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("dotnet-svcutil", "0.5.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="SystemPlataformList", Namespace="http://schemas.datacontract.org/2004/07/Nakama.Core.Model.Common")]
+    public partial class SystemPlataformList : object
+    {
+        
+        private NakamaAgentService.SystemPlataform[] SystemsField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public NakamaAgentService.SystemPlataform[] Systems
+        {
+            get
+            {
+                return this.SystemsField;
+            }
+            set
+            {
+                this.SystemsField = value;
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("dotnet-svcutil", "0.5.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="MarketGroup", Namespace="http://schemas.datacontract.org/2004/07/Nakama.Core.Model.Market")]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(NakamaAgentService.MarketSport))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(NakamaAgentService.AgentMarketSportGroup))]
@@ -24,26 +83,13 @@ namespace NakamaAgentService
     public partial class MarketGroup : object
     {
         
-        private int AgentSystemIDField;
-        
         private bool IsForAllPlayersField;
         
         private bool IsForAllSubAgentsField;
         
         private NakamaAgentService.MarketLimit[] LimitsField;
         
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int AgentSystemID
-        {
-            get
-            {
-                return this.AgentSystemIDField;
-            }
-            set
-            {
-                this.AgentSystemIDField = value;
-            }
-        }
+        private int SystemPlataformIDField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
         public bool IsForAllPlayers
@@ -81,6 +127,19 @@ namespace NakamaAgentService
             set
             {
                 this.LimitsField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int SystemPlataformID
+        {
+            get
+            {
+                return this.SystemPlataformIDField;
+            }
+            set
+            {
+                this.SystemPlataformIDField = value;
             }
         }
     }
@@ -411,24 +470,11 @@ namespace NakamaAgentService
     public partial class MarketGroupFilter : object
     {
         
-        private int AgentSystemIDField;
-        
         private bool IsForAllAgentsAndPlayersField;
         
         private NakamaAgentService.MarketLimitFilter[] LimitsField;
         
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int AgentSystemID
-        {
-            get
-            {
-                return this.AgentSystemIDField;
-            }
-            set
-            {
-                this.AgentSystemIDField = value;
-            }
-        }
+        private int SystemPlataformIDField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
         public bool IsForAllAgentsAndPlayers
@@ -453,6 +499,19 @@ namespace NakamaAgentService
             set
             {
                 this.LimitsField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int SystemPlataformID
+        {
+            get
+            {
+                return this.SystemPlataformIDField;
+            }
+            set
+            {
+                this.SystemPlataformIDField = value;
             }
         }
     }
@@ -686,6 +745,9 @@ namespace NakamaAgentService
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("dotnet-svcutil", "0.5.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="MarketResponse", Namespace="http://schemas.datacontract.org/2004/07/Nakama.Extension.Shared.Market")]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(NakamaAgentService.SystemPlataform))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(NakamaAgentService.SystemPlataformList))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(NakamaAgentService.SystemPlataform[]))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(NakamaAgentService.AgentMarketCategoryGroup))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(NakamaAgentService.AgentMarketTournamentGroup))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(NakamaAgentService.MarketSport))]
@@ -717,9 +779,6 @@ namespace NakamaAgentService
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(NakamaAgentService.AgentSetting))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(NakamaAgentService.AgentSettingList))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(NakamaAgentService.AgentSetting[]))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(NakamaAgentService.AgentSystem))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(NakamaAgentService.AgentSystemList))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(NakamaAgentService.AgentSystem[]))]
     public partial class MarketResponse : object
     {
         
@@ -883,11 +942,11 @@ namespace NakamaAgentService
         
         private NakamaAgentService.AgentSettingFilter[] AgentSettingsField;
         
-        private int AgentSystemIDField;
-        
         private string AgentTypeField;
         
         private NakamaAgentService.AgentFilter[] SubAgentsField;
+        
+        private int SystemPlataformIDField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string AgentID
@@ -916,19 +975,6 @@ namespace NakamaAgentService
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public int AgentSystemID
-        {
-            get
-            {
-                return this.AgentSystemIDField;
-            }
-            set
-            {
-                this.AgentSystemIDField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
         public string AgentType
         {
             get
@@ -951,6 +997,19 @@ namespace NakamaAgentService
             set
             {
                 this.SubAgentsField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int SystemPlataformID
+        {
+            get
+            {
+                return this.SystemPlataformIDField;
+            }
+            set
+            {
+                this.SystemPlataformIDField = value;
             }
         }
     }
@@ -1040,6 +1099,9 @@ namespace NakamaAgentService
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("dotnet-svcutil", "0.5.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="AgentResponse", Namespace="http://schemas.datacontract.org/2004/07/Nakama.Extension.Shared.Agent")]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(NakamaAgentService.SystemPlataform))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(NakamaAgentService.SystemPlataformList))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(NakamaAgentService.SystemPlataform[]))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(NakamaAgentService.AgentMarketCategoryGroup))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(NakamaAgentService.AgentMarketTournamentGroup))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(NakamaAgentService.MarketSport))]
@@ -1071,9 +1133,6 @@ namespace NakamaAgentService
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(NakamaAgentService.AgentSetting))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(NakamaAgentService.AgentSettingList))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(NakamaAgentService.AgentSetting[]))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(NakamaAgentService.AgentSystem))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(NakamaAgentService.AgentSystemList))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(NakamaAgentService.AgentSystem[]))]
     public partial class AgentResponse : object
     {
         
@@ -1116,13 +1175,13 @@ namespace NakamaAgentService
         
         private string AgentIDField;
         
-        private int AgentSystemIDField;
-        
-        private string AgentSystemNameField;
-        
         private string AgentTypeField;
         
         private string MasterAgentIDField;
+        
+        private int SystemPlataformIDField;
+        
+        private string SystemPlataformNameField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string AgentID
@@ -1134,32 +1193,6 @@ namespace NakamaAgentService
             set
             {
                 this.AgentIDField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int AgentSystemID
-        {
-            get
-            {
-                return this.AgentSystemIDField;
-            }
-            set
-            {
-                this.AgentSystemIDField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string AgentSystemName
-        {
-            get
-            {
-                return this.AgentSystemNameField;
-            }
-            set
-            {
-                this.AgentSystemNameField = value;
             }
         }
         
@@ -1186,6 +1219,32 @@ namespace NakamaAgentService
             set
             {
                 this.MasterAgentIDField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int SystemPlataformID
+        {
+            get
+            {
+                return this.SystemPlataformIDField;
+            }
+            set
+            {
+                this.SystemPlataformIDField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string SystemPlataformName
+        {
+            get
+            {
+                return this.SystemPlataformNameField;
+            }
+            set
+            {
+                this.SystemPlataformNameField = value;
             }
         }
     }
@@ -1316,71 +1375,15 @@ namespace NakamaAgentService
         }
     }
     
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("dotnet-svcutil", "0.5.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="AgentSystem", Namespace="http://schemas.datacontract.org/2004/07/Nakama.Core.Model.Agent")]
-    public partial class AgentSystem : object
-    {
-        
-        private int AgentSystemIDField;
-        
-        private string AgentSystemNameField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int AgentSystemID
-        {
-            get
-            {
-                return this.AgentSystemIDField;
-            }
-            set
-            {
-                this.AgentSystemIDField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string AgentSystemName
-        {
-            get
-            {
-                return this.AgentSystemNameField;
-            }
-            set
-            {
-                this.AgentSystemNameField = value;
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("dotnet-svcutil", "0.5.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="AgentSystemList", Namespace="http://schemas.datacontract.org/2004/07/Nakama.Core.Model.Agent")]
-    public partial class AgentSystemList : object
-    {
-        
-        private NakamaAgentService.AgentSystem[] SystemsField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public NakamaAgentService.AgentSystem[] Systems
-        {
-            get
-            {
-                return this.SystemsField;
-            }
-            set
-            {
-                this.SystemsField = value;
-            }
-        }
-    }
-    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("dotnet-svcutil", "0.5.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="NakamaAgentService.IAgentWebService")]
     public interface IAgentWebService
     {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAgentWebService/GetAgent", ReplyAction="http://tempuri.org/IAgentWebService/GetAgentResponse")]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(NakamaAgentService.SystemPlataform))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(NakamaAgentService.SystemPlataformList))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(NakamaAgentService.SystemPlataform[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(NakamaAgentService.AgentMarketCategoryGroup))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(NakamaAgentService.AgentMarketTournamentGroup))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(NakamaAgentService.MarketSport))]
@@ -1413,12 +1416,12 @@ namespace NakamaAgentService
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(NakamaAgentService.AgentSetting))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(NakamaAgentService.AgentSettingList))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(NakamaAgentService.AgentSetting[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(NakamaAgentService.AgentSystem))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(NakamaAgentService.AgentSystemList))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(NakamaAgentService.AgentSystem[]))]
         System.Threading.Tasks.Task<NakamaAgentService.AgentResponse> GetAgentAsync(object filter);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAgentWebService/GetMasterAgents", ReplyAction="http://tempuri.org/IAgentWebService/GetMasterAgentsResponse")]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(NakamaAgentService.SystemPlataform))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(NakamaAgentService.SystemPlataformList))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(NakamaAgentService.SystemPlataform[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(NakamaAgentService.AgentMarketCategoryGroup))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(NakamaAgentService.AgentMarketTournamentGroup))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(NakamaAgentService.MarketSport))]
@@ -1451,12 +1454,12 @@ namespace NakamaAgentService
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(NakamaAgentService.AgentSetting))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(NakamaAgentService.AgentSettingList))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(NakamaAgentService.AgentSetting[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(NakamaAgentService.AgentSystem))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(NakamaAgentService.AgentSystemList))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(NakamaAgentService.AgentSystem[]))]
         System.Threading.Tasks.Task<NakamaAgentService.AgentResponse> GetMasterAgentsAsync(object filter);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAgentWebService/GetSubAgents", ReplyAction="http://tempuri.org/IAgentWebService/GetSubAgentsResponse")]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(NakamaAgentService.SystemPlataform))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(NakamaAgentService.SystemPlataformList))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(NakamaAgentService.SystemPlataform[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(NakamaAgentService.AgentMarketCategoryGroup))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(NakamaAgentService.AgentMarketTournamentGroup))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(NakamaAgentService.MarketSport))]
@@ -1489,12 +1492,12 @@ namespace NakamaAgentService
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(NakamaAgentService.AgentSetting))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(NakamaAgentService.AgentSettingList))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(NakamaAgentService.AgentSetting[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(NakamaAgentService.AgentSystem))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(NakamaAgentService.AgentSystemList))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(NakamaAgentService.AgentSystem[]))]
         System.Threading.Tasks.Task<NakamaAgentService.AgentResponse> GetSubAgentsAsync(object filter);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAgentWebService/GetAgentSportMarket", ReplyAction="http://tempuri.org/IAgentWebService/GetAgentSportMarketResponse")]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(NakamaAgentService.SystemPlataform))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(NakamaAgentService.SystemPlataformList))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(NakamaAgentService.SystemPlataform[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(NakamaAgentService.AgentMarketCategoryGroup))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(NakamaAgentService.AgentMarketTournamentGroup))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(NakamaAgentService.MarketSport))]
@@ -1527,12 +1530,12 @@ namespace NakamaAgentService
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(NakamaAgentService.AgentSetting))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(NakamaAgentService.AgentSettingList))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(NakamaAgentService.AgentSetting[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(NakamaAgentService.AgentSystem))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(NakamaAgentService.AgentSystemList))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(NakamaAgentService.AgentSystem[]))]
         System.Threading.Tasks.Task<NakamaAgentService.MarketResponse> GetAgentSportMarketAsync(object filter);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAgentWebService/GetAgentCategoryMarket", ReplyAction="http://tempuri.org/IAgentWebService/GetAgentCategoryMarketResponse")]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(NakamaAgentService.SystemPlataform))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(NakamaAgentService.SystemPlataformList))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(NakamaAgentService.SystemPlataform[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(NakamaAgentService.AgentMarketCategoryGroup))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(NakamaAgentService.AgentMarketTournamentGroup))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(NakamaAgentService.MarketSport))]
@@ -1565,12 +1568,12 @@ namespace NakamaAgentService
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(NakamaAgentService.AgentSetting))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(NakamaAgentService.AgentSettingList))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(NakamaAgentService.AgentSetting[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(NakamaAgentService.AgentSystem))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(NakamaAgentService.AgentSystemList))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(NakamaAgentService.AgentSystem[]))]
         System.Threading.Tasks.Task<NakamaAgentService.MarketResponse> GetAgentCategoryMarketAsync(object filter);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAgentWebService/GetAgentTournamentMarket", ReplyAction="http://tempuri.org/IAgentWebService/GetAgentTournamentMarketResponse")]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(NakamaAgentService.SystemPlataform))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(NakamaAgentService.SystemPlataformList))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(NakamaAgentService.SystemPlataform[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(NakamaAgentService.AgentMarketCategoryGroup))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(NakamaAgentService.AgentMarketTournamentGroup))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(NakamaAgentService.MarketSport))]
@@ -1603,12 +1606,12 @@ namespace NakamaAgentService
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(NakamaAgentService.AgentSetting))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(NakamaAgentService.AgentSettingList))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(NakamaAgentService.AgentSetting[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(NakamaAgentService.AgentSystem))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(NakamaAgentService.AgentSystemList))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(NakamaAgentService.AgentSystem[]))]
         System.Threading.Tasks.Task<NakamaAgentService.MarketResponse> GetAgentTournamentMarketAsync(object filter);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAgentWebService/SetAgentSportMarket", ReplyAction="http://tempuri.org/IAgentWebService/SetAgentSportMarketResponse")]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(NakamaAgentService.SystemPlataform))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(NakamaAgentService.SystemPlataformList))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(NakamaAgentService.SystemPlataform[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(NakamaAgentService.AgentMarketCategoryGroup))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(NakamaAgentService.AgentMarketTournamentGroup))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(NakamaAgentService.MarketSport))]
@@ -1641,12 +1644,12 @@ namespace NakamaAgentService
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(NakamaAgentService.AgentSetting))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(NakamaAgentService.AgentSettingList))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(NakamaAgentService.AgentSetting[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(NakamaAgentService.AgentSystem))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(NakamaAgentService.AgentSystemList))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(NakamaAgentService.AgentSystem[]))]
         System.Threading.Tasks.Task<NakamaAgentService.AgentResponse> SetAgentSportMarketAsync(object filter);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAgentWebService/SetAgentCategoryMarket", ReplyAction="http://tempuri.org/IAgentWebService/SetAgentCategoryMarketResponse")]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(NakamaAgentService.SystemPlataform))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(NakamaAgentService.SystemPlataformList))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(NakamaAgentService.SystemPlataform[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(NakamaAgentService.AgentMarketCategoryGroup))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(NakamaAgentService.AgentMarketTournamentGroup))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(NakamaAgentService.MarketSport))]
@@ -1679,12 +1682,12 @@ namespace NakamaAgentService
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(NakamaAgentService.AgentSetting))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(NakamaAgentService.AgentSettingList))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(NakamaAgentService.AgentSetting[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(NakamaAgentService.AgentSystem))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(NakamaAgentService.AgentSystemList))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(NakamaAgentService.AgentSystem[]))]
         System.Threading.Tasks.Task<NakamaAgentService.AgentResponse> SetAgentCategoryMarketAsync(object filter);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAgentWebService/SetAgentTournamentMarket", ReplyAction="http://tempuri.org/IAgentWebService/SetAgentTournamentMarketResponse")]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(NakamaAgentService.SystemPlataform))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(NakamaAgentService.SystemPlataformList))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(NakamaAgentService.SystemPlataform[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(NakamaAgentService.AgentMarketCategoryGroup))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(NakamaAgentService.AgentMarketTournamentGroup))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(NakamaAgentService.MarketSport))]
@@ -1717,12 +1720,12 @@ namespace NakamaAgentService
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(NakamaAgentService.AgentSetting))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(NakamaAgentService.AgentSettingList))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(NakamaAgentService.AgentSetting[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(NakamaAgentService.AgentSystem))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(NakamaAgentService.AgentSystemList))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(NakamaAgentService.AgentSystem[]))]
         System.Threading.Tasks.Task<NakamaAgentService.AgentResponse> SetAgentTournamentMarketAsync(object filter);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAgentWebService/GetAgentSettingByAgentID", ReplyAction="http://tempuri.org/IAgentWebService/GetAgentSettingByAgentIDResponse")]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(NakamaAgentService.SystemPlataform))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(NakamaAgentService.SystemPlataformList))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(NakamaAgentService.SystemPlataform[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(NakamaAgentService.AgentMarketCategoryGroup))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(NakamaAgentService.AgentMarketTournamentGroup))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(NakamaAgentService.MarketSport))]
@@ -1755,12 +1758,12 @@ namespace NakamaAgentService
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(NakamaAgentService.AgentSetting))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(NakamaAgentService.AgentSettingList))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(NakamaAgentService.AgentSetting[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(NakamaAgentService.AgentSystem))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(NakamaAgentService.AgentSystemList))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(NakamaAgentService.AgentSystem[]))]
         System.Threading.Tasks.Task<NakamaAgentService.AgentResponse> GetAgentSettingByAgentIDAsync(object filter);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAgentWebService/SetAgentSettingByAgentID", ReplyAction="http://tempuri.org/IAgentWebService/SetAgentSettingByAgentIDResponse")]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(NakamaAgentService.SystemPlataform))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(NakamaAgentService.SystemPlataformList))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(NakamaAgentService.SystemPlataform[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(NakamaAgentService.AgentMarketCategoryGroup))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(NakamaAgentService.AgentMarketTournamentGroup))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(NakamaAgentService.MarketSport))]
@@ -1793,13 +1796,10 @@ namespace NakamaAgentService
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(NakamaAgentService.AgentSetting))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(NakamaAgentService.AgentSettingList))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(NakamaAgentService.AgentSetting[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(NakamaAgentService.AgentSystem))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(NakamaAgentService.AgentSystemList))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(NakamaAgentService.AgentSystem[]))]
         System.Threading.Tasks.Task<NakamaAgentService.AgentResponse> SetAgentSettingByAgentIDAsync(object filter);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAgentWebService/GetAgentSystem", ReplyAction="http://tempuri.org/IAgentWebService/GetAgentSystemResponse")]
-        System.Threading.Tasks.Task<NakamaAgentService.AgentResponse> GetAgentSystemAsync();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAgentWebService/GetSystemPlataform", ReplyAction="http://tempuri.org/IAgentWebService/GetSystemPlataformResponse")]
+        System.Threading.Tasks.Task<NakamaAgentService.AgentResponse> GetSystemPlataformAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("dotnet-svcutil", "0.5.0.0")]
@@ -1907,9 +1907,9 @@ namespace NakamaAgentService
             return base.Channel.SetAgentSettingByAgentIDAsync(filter);
         }
         
-        public System.Threading.Tasks.Task<NakamaAgentService.AgentResponse> GetAgentSystemAsync()
+        public System.Threading.Tasks.Task<NakamaAgentService.AgentResponse> GetSystemPlataformAsync()
         {
-            return base.Channel.GetAgentSystemAsync();
+            return base.Channel.GetSystemPlataformAsync();
         }
         
         public virtual System.Threading.Tasks.Task OpenAsync()

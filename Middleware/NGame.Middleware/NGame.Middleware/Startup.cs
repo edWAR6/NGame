@@ -31,6 +31,9 @@ namespace NGame.Middleware
             // Add framework services.
             services.AddMvc();
 
+            // Configuration service declaration
+            services.AddSingleton<IConfiguration>(Configuration);
+
             // ********************
             // Setup CORS
             // ********************

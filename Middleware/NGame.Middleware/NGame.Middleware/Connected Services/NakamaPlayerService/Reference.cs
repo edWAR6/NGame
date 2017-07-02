@@ -24,26 +24,13 @@ namespace NakamaPlayerService
     public partial class MarketGroup : object
     {
         
-        private int AgentSystemIDField;
-        
         private bool IsForAllPlayersField;
         
         private bool IsForAllSubAgentsField;
         
         private NakamaPlayerService.MarketLimit[] LimitsField;
         
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int AgentSystemID
-        {
-            get
-            {
-                return this.AgentSystemIDField;
-            }
-            set
-            {
-                this.AgentSystemIDField = value;
-            }
-        }
+        private int SystemPlataformIDField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
         public bool IsForAllPlayers
@@ -81,6 +68,19 @@ namespace NakamaPlayerService
             set
             {
                 this.LimitsField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int SystemPlataformID
+        {
+            get
+            {
+                return this.SystemPlataformIDField;
+            }
+            set
+            {
+                this.SystemPlataformIDField = value;
             }
         }
     }
@@ -410,24 +410,11 @@ namespace NakamaPlayerService
     public partial class MarketGroupFilter : object
     {
         
-        private int AgentSystemIDField;
-        
         private bool IsForAllAgentsAndPlayersField;
         
         private NakamaPlayerService.MarketLimitFilter[] LimitsField;
         
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int AgentSystemID
-        {
-            get
-            {
-                return this.AgentSystemIDField;
-            }
-            set
-            {
-                this.AgentSystemIDField = value;
-            }
-        }
+        private int SystemPlataformIDField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
         public bool IsForAllAgentsAndPlayers
@@ -452,6 +439,19 @@ namespace NakamaPlayerService
             set
             {
                 this.LimitsField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int SystemPlataformID
+        {
+            get
+            {
+                return this.SystemPlataformIDField;
+            }
+            set
+            {
+                this.SystemPlataformIDField = value;
             }
         }
     }
@@ -876,8 +876,6 @@ namespace NakamaPlayerService
         
         private string AgentIDField;
         
-        private int AgentSystemIDField;
-        
         private string HostPlayerIDField;
         
         private string PlayerAccountNumberField;
@@ -885,6 +883,8 @@ namespace NakamaPlayerService
         private int PlayerIDField;
         
         private NakamaPlayerService.PlayerSettingFilter[] PlayerSettingsField;
+        
+        private int SystemPlataformIDField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string AgentID
@@ -896,19 +896,6 @@ namespace NakamaPlayerService
             set
             {
                 this.AgentIDField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int AgentSystemID
-        {
-            get
-            {
-                return this.AgentSystemIDField;
-            }
-            set
-            {
-                this.AgentSystemIDField = value;
             }
         }
         
@@ -961,6 +948,19 @@ namespace NakamaPlayerService
             set
             {
                 this.PlayerSettingsField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int SystemPlataformID
+        {
+            get
+            {
+                return this.SystemPlataformIDField;
+            }
+            set
+            {
+                this.SystemPlataformIDField = value;
             }
         }
     }
@@ -1796,7 +1796,7 @@ namespace NakamaPlayerService
         System.Threading.Tasks.Task<NakamaPlayerService.MarketResponse> GetPlayerCategoryMarketAsync(object filter);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlayerWebService/GetToken", ReplyAction="http://tempuri.org/IPlayerWebService/GetTokenResponse")]
-        System.Threading.Tasks.Task<string> GetTokenAsync(string userName, string password, int agentSystemID);
+        System.Threading.Tasks.Task<string> GetTokenAsync(string userName, string password, int systemPlataformID);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("dotnet-svcutil", "0.5.0.0")]
@@ -1909,9 +1909,9 @@ namespace NakamaPlayerService
             return base.Channel.GetPlayerCategoryMarketAsync(filter);
         }
         
-        public System.Threading.Tasks.Task<string> GetTokenAsync(string userName, string password, int agentSystemID)
+        public System.Threading.Tasks.Task<string> GetTokenAsync(string userName, string password, int systemPlataformID)
         {
-            return base.Channel.GetTokenAsync(userName, password, agentSystemID);
+            return base.Channel.GetTokenAsync(userName, password, systemPlataformID);
         }
         
         public virtual System.Threading.Tasks.Task OpenAsync()

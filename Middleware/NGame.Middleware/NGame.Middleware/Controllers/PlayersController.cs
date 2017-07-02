@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using NakamaPlayerService;
 using Microsoft.AspNetCore.Cors;
+using Microsoft.Extensions.Configuration;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -14,16 +15,37 @@ namespace NGame.Middleware.Controllers
     [Route("api/[controller]")]
     public class PlayersController : Controller
     {
-        private static readonly int SYSTEM_PLATFORM_ID = 1;
+        private IConfiguration configuration;
+        private int systemPlataformID;
 
-        // GET api/players/5/settings
-        [HttpGet("{id}/settings")]
+        public PlayersController(IConfiguration configuration) {
+            this.configuration = configuration;
+            this.systemPlataformID = configuration.GetValue<int>("SystemPlataformID");
+        }
+
+        // GET api/players/5
+        [HttpGet("{id}")]
         public PlayerResponse Get(int id)
         {
             PlayerWebServiceClient client = new PlayerWebServiceClient();
             PlayerFilter filter = new PlayerFilter();
             filter.PlayerID = id;
-            filter.AgentSystemID = SYSTEM_PLATFORM_ID;
+            filter.SystemPlataformID = this.systemPlataformID;
+
+            PlayerResponse response = client.GetPlayerByPlayerIDAsync(filter).Result;
+            client.CloseAsync();
+
+            return response;
+        }
+
+        // GET api/players/5/settings
+        [HttpGet("{id}/settings")]
+        public PlayerResponse GetSettings(int id)
+        {
+            PlayerWebServiceClient client = new PlayerWebServiceClient();
+            PlayerFilter filter = new PlayerFilter();
+            filter.PlayerID = id;
+            filter.SystemPlataformID = this.systemPlataformID;
 
             PlayerResponse response = client.GetPlayerSettingByPlayerIDAsync(filter).Result;
             client.CloseAsync();
@@ -38,7 +60,7 @@ namespace NGame.Middleware.Controllers
             PlayerWebServiceClient client = new PlayerWebServiceClient();
             PlayerFilter filter = new PlayerFilter();
             filter.HostPlayerID = id;
-            filter.AgentSystemID = SYSTEM_PLATFORM_ID;
+            filter.SystemPlataformID = this.systemPlataformID;
 
             PlayerResponse response = client.GetPlayerSettingByHostPlayerIDAsync(filter).Result;
             client.CloseAsync();
@@ -53,7 +75,7 @@ namespace NGame.Middleware.Controllers
             PlayerWebServiceClient client = new PlayerWebServiceClient();
             PlayerMarketSportGroupFilter filter = new PlayerMarketSportGroupFilter();
             filter.PlayerID = id;
-            filter.AgentSystemID = SYSTEM_PLATFORM_ID;
+            filter.SystemPlataformID = this.systemPlataformID;
             filter.SportID = sportId;
 
             MarketResponse response = client.GetPlayerSportMarketAsync(filter).Result;
@@ -69,7 +91,7 @@ namespace NGame.Middleware.Controllers
             PlayerWebServiceClient client = new PlayerWebServiceClient();
             PlayerMarketCategoryGroupFilter filter = new PlayerMarketCategoryGroupFilter();
             filter.PlayerID = id;
-            filter.AgentSystemID = SYSTEM_PLATFORM_ID;
+            filter.SystemPlataformID = this.systemPlataformID;
             filter.SportID = sportId;
             filter.CategoryID = categoryId;
 
@@ -86,7 +108,7 @@ namespace NGame.Middleware.Controllers
             PlayerWebServiceClient client = new PlayerWebServiceClient();
             PlayerMarketTournamentGroupFilter filter = new PlayerMarketTournamentGroupFilter();
             filter.PlayerID = id;
-            filter.AgentSystemID = SYSTEM_PLATFORM_ID;
+            filter.SystemPlataformID = this.systemPlataformID;
             filter.SportID = sportId;
             filter.CategoryID = categoryId;
             filter.TournamentID = tournamentId;
@@ -104,7 +126,7 @@ namespace NGame.Middleware.Controllers
             PlayerWebServiceClient client = new PlayerWebServiceClient();
             PlayerFilter filter = new PlayerFilter();
             filter.PlayerID = id;
-            filter.AgentSystemID = SYSTEM_PLATFORM_ID;
+            filter.SystemPlataformID = this.systemPlataformID;
             filter.PlayerSettings = settings;
 
             PlayerResponse response = client.SetPlayerSettingAsync(filter).Result;
@@ -120,7 +142,7 @@ namespace NGame.Middleware.Controllers
             PlayerWebServiceClient client = new PlayerWebServiceClient();
             PlayerMarketSportGroupFilter filter = new PlayerMarketSportGroupFilter();
             filter.PlayerID = id;
-            filter.AgentSystemID = SYSTEM_PLATFORM_ID;
+            filter.SystemPlataformID = this.systemPlataformID;
             filter.SportID = sportId;
             filter.Limits = limits;
 
@@ -137,7 +159,7 @@ namespace NGame.Middleware.Controllers
             PlayerWebServiceClient client = new PlayerWebServiceClient();
             PlayerMarketCategoryGroupFilter filter = new PlayerMarketCategoryGroupFilter();
             filter.PlayerID = id;
-            filter.AgentSystemID = SYSTEM_PLATFORM_ID;
+            filter.SystemPlataformID = this.systemPlataformID;
             filter.SportID = sportId;
             filter.CategoryID = categoryId;
             filter.Limits = limits;
@@ -155,7 +177,7 @@ namespace NGame.Middleware.Controllers
             PlayerWebServiceClient client = new PlayerWebServiceClient();
             PlayerMarketTournamentGroupFilter filter = new PlayerMarketTournamentGroupFilter();
             filter.PlayerID = id;
-            filter.AgentSystemID = SYSTEM_PLATFORM_ID;
+            filter.SystemPlataformID = this.systemPlataformID;
             filter.SportID = sportId;
             filter.CategoryID = categoryId;
             filter.TournamentID = tournamentId;

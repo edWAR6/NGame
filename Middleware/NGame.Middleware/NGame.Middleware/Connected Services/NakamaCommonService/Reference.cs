@@ -119,8 +119,6 @@ namespace NakamaCommonService
         
         private string AgentIDField;
         
-        private int AgentSystemIDField;
-        
         private string HostPlayerIDField;
         
         private string PlayerAccountNumberField;
@@ -128,6 +126,8 @@ namespace NakamaCommonService
         private int PlayerIDField;
         
         private NakamaCommonService.PlayerSettingFilter[] PlayerSettingsField;
+        
+        private int SystemPlataformIDField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string AgentID
@@ -139,19 +139,6 @@ namespace NakamaCommonService
             set
             {
                 this.AgentIDField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int AgentSystemID
-        {
-            get
-            {
-                return this.AgentSystemIDField;
-            }
-            set
-            {
-                this.AgentSystemIDField = value;
             }
         }
         
@@ -204,6 +191,19 @@ namespace NakamaCommonService
             set
             {
                 this.PlayerSettingsField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int SystemPlataformID
+        {
+            get
+            {
+                return this.SystemPlataformIDField;
+            }
+            set
+            {
+                this.SystemPlataformIDField = value;
             }
         }
     }
@@ -270,11 +270,11 @@ namespace NakamaCommonService
         
         private NakamaCommonService.AgentSettingFilter[] AgentSettingsField;
         
-        private int AgentSystemIDField;
-        
         private string AgentTypeField;
         
         private NakamaCommonService.AgentFilter[] SubAgentsField;
+        
+        private int SystemPlataformIDField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string AgentID
@@ -303,19 +303,6 @@ namespace NakamaCommonService
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public int AgentSystemID
-        {
-            get
-            {
-                return this.AgentSystemIDField;
-            }
-            set
-            {
-                this.AgentSystemIDField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
         public string AgentType
         {
             get
@@ -338,6 +325,19 @@ namespace NakamaCommonService
             set
             {
                 this.SubAgentsField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int SystemPlataformID
+        {
+            get
+            {
+                return this.SystemPlataformIDField;
+            }
+            set
+            {
+                this.SystemPlataformIDField = value;
             }
         }
     }
@@ -430,8 +430,6 @@ namespace NakamaCommonService
     public partial class LimitFilter : object
     {
         
-        private int AgentSystemIDField;
-        
         private NakamaCommonService.AgentFilter[] AgentsField;
         
         private float MaxBetField;
@@ -440,18 +438,9 @@ namespace NakamaCommonService
         
         private NakamaCommonService.PlayerFilter[] PlayersField;
         
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int AgentSystemID
-        {
-            get
-            {
-                return this.AgentSystemIDField;
-            }
-            set
-            {
-                this.AgentSystemIDField = value;
-            }
-        }
+        private System.Nullable<int> SportIdField;
+        
+        private int SystemPlataformIDField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
         public NakamaCommonService.AgentFilter[] Agents
@@ -502,6 +491,32 @@ namespace NakamaCommonService
             set
             {
                 this.PlayersField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> SportId
+        {
+            get
+            {
+                return this.SportIdField;
+            }
+            set
+            {
+                this.SportIdField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int SystemPlataformID
+        {
+            get
+            {
+                return this.SystemPlataformIDField;
+            }
+            set
+            {
+                this.SystemPlataformIDField = value;
             }
         }
     }
@@ -698,26 +713,13 @@ namespace NakamaCommonService
     public partial class MarketGroup : object
     {
         
-        private int AgentSystemIDField;
-        
         private bool IsForAllPlayersField;
         
         private bool IsForAllSubAgentsField;
         
         private NakamaCommonService.MarketLimit[] LimitsField;
         
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int AgentSystemID
-        {
-            get
-            {
-                return this.AgentSystemIDField;
-            }
-            set
-            {
-                this.AgentSystemIDField = value;
-            }
-        }
+        private int SystemPlataformIDField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
         public bool IsForAllPlayers
@@ -755,6 +757,19 @@ namespace NakamaCommonService
             set
             {
                 this.LimitsField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int SystemPlataformID
+        {
+            get
+            {
+                return this.SystemPlataformIDField;
+            }
+            set
+            {
+                this.SystemPlataformIDField = value;
             }
         }
     }

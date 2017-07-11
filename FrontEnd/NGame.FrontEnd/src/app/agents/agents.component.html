@@ -1,0 +1,277 @@
+<md-card>
+  <md-card-header>
+    <md-card-title>
+      <h2>Find an Agent</h2>
+    </md-card-title>
+  </md-card-header>
+  <md-card-content fxLayoutWrap fxLayoutAlign="start center" fxLayoutGap="20px">
+    <div>
+      <md-input-container>
+        <input mdInput placeholder="Agent ID:" #idInput>
+      </md-input-container>
+      <button md-raised-button (click)="GetByID(idInput.value)">Find</button>
+    </div>
+    <md-select placeholder="List of Master Agents">
+      <md-option *ngFor="let food of foods" [value]="food.value">
+        {{ food.viewValue }}
+      </md-option>
+    </md-select>
+    <md-select placeholder="List of Sub Agents">
+      <md-option *ngFor="let food of foods" [value]="food.value">
+        {{ food.viewValue }}
+      </md-option>
+    </md-select>
+    <button md-raised-button>Load</button>
+  </md-card-content>
+</md-card>
+
+<div fxLayoutWrap fxLayout.xs="column" fxLayoutAlign="start stretch" fxLayoutGap="20px">
+  <div fxFlex="1 0 auto">
+    <md-card>
+      <md-card-header>
+        <md-card-title>Agent Information</md-card-title>
+      </md-card-header>
+      <md-card-content fxLayout="column" fxLayoutGap="20px">
+        <md-input-container>
+          <input mdInput placeholder="Agent ID:" disabled value="{{agent.agentID}}">
+        </md-input-container>
+        <md-checkbox [(ngModel)]="settings.LiveBettingForPlayerAccess">Enable Live Betting for Players</md-checkbox>
+        <md-select placeholder="List of Master Agents">
+          <md-option *ngFor="let food of foods" [value]="food.value">
+            {{ food.viewValue }}
+          </md-option>
+        </md-select>
+        <md-select placeholder="List of Sub Agents">
+          <md-option *ngFor="let food of foods" [value]="food.value">
+            {{ food.viewValue }}
+          </md-option>
+        </md-select>
+        <md-select placeholder="List of Players">
+          <md-option *ngFor="let food of foods" [value]="food.value">
+            {{ food.viewValue }}
+          </md-option>
+        </md-select>
+        <md-checkbox [(ngModel)]="settings.LiveBettingAdminAccess">Enable Live Betting Admin</md-checkbox>
+        <md-select placeholder="List of Master Agents">
+          <md-option *ngFor="let food of foods" [value]="food.value">
+            {{ food.viewValue }}
+          </md-option>
+        </md-select>
+        <md-select placeholder="List of Sub Agents">
+          <md-option *ngFor="let food of foods" [value]="food.value">
+            {{ food.viewValue }}
+          </md-option>
+        </md-select>
+      </md-card-content>
+    </md-card>
+    <md-card>
+      <md-card-header>
+        <md-card-title>Settings</md-card-title>
+      </md-card-header>
+      <md-card-content fxLayout="column" fxLayoutGap="20px">
+        <md-checkbox [(ngModel)]="settings.Rebet">No Re-Bet</md-checkbox>
+        <md-input-container>
+          <input mdInput placeholder="Limit for all Sports and Leagues:">
+        </md-input-container>
+      </md-card-content>
+    </md-card>
+  </div>
+  <div fxFlex="1 0 auto">
+    <md-card>
+      <md-card-header>
+        <md-card-title>Groupings</md-card-title>
+      </md-card-header>
+      <md-card-content fxLayout="column" fxLayoutGap="20px">
+        <fortem-treeview item-color="#eee" child-item-color="white" children-collapsed>
+          <fortem-treeview-item *ngFor="let sport of sports" trigger="sportbutton{{sport.sportID}}" container="sportcontainer{{sport.sportID}}">
+            <button md-icon-button id="sportbutton{{sport.sportID}}">
+              <md-icon>add</md-icon>
+            </button>
+            <span>{{sport.sportsName}}</span>
+            <div id="sportcontainer{{sport.sportID}}">
+              <!-- <fortem-treeview-item trigger="albaniabutton" container="albaniacontainer">
+                <button md-icon-button id="albaniabutton">
+                  <md-icon>add</md-icon>
+                </button>
+                <span>Albania</span>
+                <div id="albaniacontainer">
+                  <fortem-treeview-item>
+                    Kategoria e Pare
+                  </fortem-treeview-item>
+                  <fortem-treeview-item>
+                    Kategoria e Pare, Group A
+                  </fortem-treeview-item>
+                </div>
+              </fortem-treeview-item> -->
+            </div>
+          </fortem-treeview-item>
+
+
+
+
+
+
+          <fortem-treeview-item trigger="soccerbutton" container="soccercontainer">
+            <button md-icon-button id="soccerbutton">
+              <md-icon>add</md-icon>
+            </button>
+            <span>Soccer</span>
+            <div id="soccercontainer">
+              <fortem-treeview-item trigger="albaniabutton" container="albaniacontainer">
+                <button md-icon-button id="albaniabutton">
+                  <md-icon>add</md-icon>
+                </button>
+                <span>Albania</span>
+                <div id="albaniacontainer">
+                  <fortem-treeview-item>
+                    Kategoria e Pare
+                  </fortem-treeview-item>
+                  <fortem-treeview-item>
+                    Kategoria e Pare, Group A
+                  </fortem-treeview-item>
+                </div>
+              </fortem-treeview-item>
+            </div>
+          </fortem-treeview-item>
+          <fortem-treeview-item trigger="soccerbutton" container="soccercontainer">
+            <button md-icon-button id="soccerbutton">
+              <md-icon>add</md-icon>
+            </button>
+            <span>Soccer</span>
+            <div id="soccercontainer">
+              <fortem-treeview-item trigger="albaniabutton" container="albaniacontainer">
+                <button md-icon-button id="albaniabutton">
+                  <md-icon>add</md-icon>
+                </button>
+                <span>Albania</span>
+                <div id="albaniacontainer">
+                  <fortem-treeview-item>
+                    Kategoria e Pare
+                  </fortem-treeview-item>
+                  <fortem-treeview-item>
+                    Kategoria e Pare, Group A
+                  </fortem-treeview-item>
+                </div>
+              </fortem-treeview-item>
+            </div>
+          </fortem-treeview-item>
+          <fortem-treeview-item trigger="soccerbutton" container="soccercontainer">
+            <button md-icon-button id="soccerbutton">
+              <md-icon>add</md-icon>
+            </button>
+            <span>Soccer</span>
+            <div id="soccercontainer">
+              <fortem-treeview-item trigger="albaniabutton" container="albaniacontainer">
+                <button md-icon-button id="albaniabutton">
+                  <md-icon>add</md-icon>
+                </button>
+                <span>Albania</span>
+                <div id="albaniacontainer">
+                  <fortem-treeview-item>
+                    Kategoria e Pare
+                  </fortem-treeview-item>
+                  <fortem-treeview-item>
+                    Kategoria e Pare, Group A
+                  </fortem-treeview-item>
+                </div>
+              </fortem-treeview-item>
+            </div>
+          </fortem-treeview-item>
+        </fortem-treeview>
+      </md-card-content>
+    </md-card>
+  </div>
+  <div fxFlex="1 0 auto">
+    <md-card>
+      <md-card-header>
+        <md-card-title>
+          <span>Sport: </span>
+          <span>Soccer</span>
+          <md-checkbox>Enabled</md-checkbox>
+        </md-card-title>
+      </md-card-header>
+      <md-card-content fxLayout="column" fxLayoutGap="20px">
+        <div>
+          <md-input-container>
+            <input mdInput placeholder="Quick Action: Apply following limit for all Markets: ">
+          </md-input-container>
+          <button md-raised-button>Apply</button>
+        </div>
+        <fortem-treeview children-collapsed>
+          <fortem-treeview-item class="treeViewPadding" fxLayoutGap="10px" fxLayoutAlign="start center">
+            <span>Market/Segment</span>
+            <span>Status</span>
+            <span>Max Bet</span>
+            <span>Max Win</span>
+          </fortem-treeview-item>
+          <fortem-treeview-item trigger="soccerbutton" container="soccercontainer">
+            <button md-icon-button id="soccerbutton">
+              <md-icon>add</md-icon>
+            </button>
+            <span>ThreeWay</span>
+            <div id="soccercontainer">
+              <fortem-treeview-item class="treeViewPadding" fxLayoutGap="10px" fxLayoutAlign="start center">
+                <span>Regulation</span>
+                <md-checkbox>Enabled</md-checkbox>
+                <span>1000</span>
+                <span>1</span>
+              </fortem-treeview-item>
+            </div>
+          </fortem-treeview-item>
+          <fortem-treeview-item trigger="soccerbutton" container="soccercontainer">
+            <button md-icon-button id="soccerbutton">
+              <md-icon>add</md-icon>
+            </button>
+            <span>ThreeWayHcp</span>
+            <div id="soccercontainer">
+              <fortem-treeview-item trigger="albaniabutton" container="albaniacontainer">
+                <button md-icon-button id="albaniabutton">
+                  <md-icon>add</md-icon>
+                </button>
+                <span>Albania</span>
+                <div id="albaniacontainer">
+                  <fortem-treeview-item>
+                    Kategoria e Pare
+                  </fortem-treeview-item>
+                  <fortem-treeview-item>
+                    Kategoria e Pare, Group A
+                  </fortem-treeview-item>
+                </div>
+              </fortem-treeview-item>
+            </div>
+          </fortem-treeview-item>
+        </fortem-treeview>
+      </md-card-content>
+    </md-card>
+  </div>
+  <div fxFlex="1 0 auto">
+    <md-card>
+      <md-card-content fxLayout="column" fxLayoutGap="20px">
+        <md-checkbox>Apply changes to all Agents and Players</md-checkbox>
+        <md-checkbox>Apply changes to specific Agent(s) and all its Players</md-checkbox>
+        <md-select placeholder="List of Master Agents">
+          <md-option *ngFor="let food of foods" [value]="food.value">
+            {{ food.viewValue }}
+          </md-option>
+        </md-select>
+        <md-select placeholder="List of Sub Agents">
+          <md-option *ngFor="let food of foods" [value]="food.value">
+            {{ food.viewValue }}
+          </md-option>
+        </md-select>
+        <md-checkbox>Apply changes to specific Player(s)</md-checkbox>
+        <div>
+          <md-input-container>
+            <input mdInput>
+          </md-input-container>
+          <button md-raised-button>Find</button>
+        </div>
+        <md-select placeholder="List of Players">
+          <md-option *ngFor="let food of foods" [value]="food.value">
+            {{ food.viewValue }}
+          </md-option>
+        </md-select>
+      </md-card-content>
+    </md-card>
+  </div>
+</div>
